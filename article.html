@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>PureFlow Journal</title>
+</head>
+<body>
+
+    <div class="article-container">
+        <a class="back-btn" href="index.html">← Back to Home</a>
+        
+            <article class="article-page">
+                <div class="article-body">
+                
+                    <div class="article-img">
+                        <img id="article-img" src="" alt="Article image">
+                    </div>
+
+                    <div id="article-content" class="article-content"></div>
+
+                    <div class="article-meta-bottom">
+                        <p>
+                            <span id="article-author" class="author-name"></span>
+                            <span class="separator">|</span>
+                            <time id="article-timestamp" class="timestamp"></time>
+                        </p>
+                    </div>
+            
+                    <div class="article-share">
+                        <p class="share-label">Share</p>
+                        <div class="share-icons">
+                            <a id="share-wa" class="share-icon wa" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.5.8 4.9 2.2 6.8L4 29l7.3-2.1c1.6.9 3.4 1.4 4.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3z"/></svg></a>
+                            <a id="share-fb" class="share-icon fb" target="_blank" aria-label="Facebook"><svg viewBox="0 0 32 32"><path d="M19 6h4V2h-4c-3.9 0-7 3.1-7 7v3H8v4h4v10h4V16h4l1-4h-5V9c0-1.1.9-2 2-2z"/></svg></a>
+                            <a id="share-x" class="share-icon x" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.2 2H21l-6.5 7.5L22 22h-6.8l-5.4-7L3.7 22H1l7-8L2 2h6.9l4.8 6.3L18.2 2z"/></svg></a>
+                            <a id="share-tg" class="share-icon tg" target="_blank" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M22 2 2 10c-1.4.5-1.4 1.3-.3 1.6l5.2 1.6L19 5.7c.6-.4 1.1-.1.7.3l-9.8 8.8-.4 5.6c.6 0 .8-.3 1.1-.6l2.7-2.6 5.6 4.2c1 .5 1.8.3 2-.9L24 4c.4-1.5-.6-2.2-1.7-2z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <script>
+                    const articles = {
+                        1: {
+                            img: "web1.jpg",
+                            author: "Icut", // Nama penulis
+                            date: "2025-12-15", // Format YYYY-MM-DD untuk kemudahan parsing
+                            content: `<h1>Iman dan Ujiannya.</h1>
+                                    <p>Terkadang aku lupa, iman itu bukan cuma soal ucapan, tapi soal seberapa kuat kita bertahan, ketika dunia mulai menggoyahkan.</p>
+                                    <p>Aku teringat kisah Bilal bin Rabbah.. tubuhnya ditindih batu besar, di bawah terik matahari yang membakar. Namun dari bibirnya tetap keluar satu kalimat 'Ahad'. Satu. Allah yang Esa.</p>
+                                    <p>Bayangkan... Di antara rasa sakit dan hampirnya maut, hatinya masih tenang menyebut nama Rabb-nya. Lalu aku sadar di zaman yang jauh lebih mudah dari Bilal, iman ini kadang kalah, bukan karena beratnya ujian... tapi karena ringannya alasan.</p>
+                                    <p>Takut dibilang alim. Takut nggak diterima. Takut beda dari yang lain. Padahal yang kita cari, bukan pengakuan manusia... tapi ridha Allah yang jaga langkah kita. Semoga Allah jaga iman ini, sekuat Dia menjaga iman Bilal bin Rabbah. Aamiin ya rabbal'alamiin...</p>
+                            `
+                            },
+                        2: {
+                            img: "qada dan qadar.jpg",
+                            author: "Icut",
+                            date: "2025-12-15",
+                            content: `<h1>Qada dan Qadar Allah.</h1>
+                                    <p><b>Di balik pintu yang tertutup</b>.</p>
+                                    <p>Pernahkah kamu menangis hebat, hanya karena satu keinginan yang tidak terwujud? Aku pernah. Sering, bahkan.</p>
+                                    <p>Rasanya dada sesak, bertanya-tanya, 'Kenapa harus gagal? Padahal usahaku sudah maksimal. Padahal doaku tak pernah putus.' Di titik itu, aku merasa Qada dan Qadar Allah seolah tidak adil. Aku merasa skenario yang kusun sendiri adalah yang paling sempurna untuk hidupku. Aku lupa, bahwa aku hanyalah penumpang, bukan nahkoda.</p>
+                                    <p>Perlahan aku sadar... Pandanganku terbatas sekat tembok hari ini, sedangkan pengetahuan Allah menembus masa depan yang tak bertepi. Seringkali, Allah mematahkan hati kita, membatalkan rencana kita, bukan karena Dia tega. Tapi karena Dia tahu, ada bahaya besar di ujung jalan yang kita pilih itu. Ada jurang di balik bunga yang ingin kita petik itu.</p>
+                                    <p>Kita menangis karena kehilangan 'mainan' yang kita cintai, padahal Allah sedang menyiapkan 'kerajaan' yang jauh lebih baik. Iman kepada Takdir itu bukan berarti pasrah tanpa usaha. Tapi tentang keyakinan penuh: <b>Bahwa apa yang luput dariku, tidak pernah tertulis untukku. Dan apa yang tertulis untukku, tak akan pernah luput dariku.</b></p>
+                                    <p>Hari ini aku belajar... Puncak tertinggi dari mencintai Allah adalah Ridha. Berdamai dengan ketetapan-Nya. Berhenti mempertanyakan 'Kenapa', dan mulai berkata 'Tuntun aku, Ya Rabb'. Karena sesungguhnya, pilihan Allah tidak pernah salah, hanya terkadang... hati kita yang terlalu terburu-buru untuk mengerti.</p>
+                                    <p>Ya Allah, lapangkanlah dada ini untuk menerima segala Qada dan Qadar-Mu. Jadikan kami hamba yang percaya, bahwa di setiap hal yang Engkau ambil, selalu ada hal lebih indah yang siap Engkau beri. <i>Aamiin ya rabbal'alamiin...</i></p>
+                            `
+                        },
+                        3: {
+                            img: "sebaik-baik perhiasan.jpg",
+                            author: "Icut",
+                            date: "2025-12-15",
+                            content: `<h1>Dua Pilihan Wanita</h1>
+                                    <p>Dunia ini panggung, dan setiap jiwa adalah pemeran. Bagi seorang wanita, skenario yang disajikan alam semesta seringkali mengerucut pada dua garis takdir yang kontras, dua pilihan yang menentukan bukan hanya nasib dirinya, tetapi juga corak peradaban di sekitarnya: menjadi <b>sebaik-baik perhiasan</b> atau menjadi <b>sebesar-besar fitnah</b>.</p>
+                                    <p>Kita berhenti sejenak, menatap bayangan di cermin. Bukan paras yang sedang kita nilai, melainkan hakikat yang tersembunyi di baliknya. Perhiasan, dalam definisi yang paling mulia, adalah sesuatu yang <b>menambah keelokan, mendatangkan ketenangan, dan menaikkan nilai</b> di tempat ia berada. Seorang wanita memilih jalan ini ketika ia menjadikan <b>hati sebagai istana kemuliaan,</b> menghiasinya dengan iman, akal budi yang tajam, dan kasih sayang yang tulus. Tutur katanya lembut namun berisi, pandangannya santun namun teguh. Ia menjaga diri bukan karena keterbatasan, melainkan karena kesadaran akan <b>nilai dirinya yang tak ternilai;</b> bagai mutiara yang tersimpan rapat, kemilau sejatinya hanya terungkap oleh cahaya yang tepat. Kehadirannya adalah rahmat, ketaatannya adalah inspirasi, dan diamnya adalah kehormatan.</p>
+                                    <p>Namun, di persimpangan jalan, terhampar pula godaan untuk memilih jalur yang lain. Fitnah, dalam makna spiritualnya yang mendalam, adalah ujian, kekacauan, atau daya tarik yang menyesatkan. Ia hadir ketika seorang wanita menempatkan nilai dirinya semata-mata pada pengakuan dunia luar—pada rupa, pada gema pujian, atau pada kekuasaan sementara atas pandangan mata. Ia menjadi pusat badai godaan, memancarkan pesona yang liar, dan menarik hati-hati yang lemah ke dalam jurang keinginan tanpa batas. Semakin ia mengekspos, semakin ia kehilangan esensinya. Ia mungkin meraih sorotan dan tepuk tangan, tetapi ia mengorbankan <b>ketenangan batin</b> dan <b>kemuliaan abadi.</b> Ia menjadi ujian bagi dirinya sendiri dan bagi masyarakat—sebuah kemewahan yang merusak, sebuah keindahan yang menipu.</p>
+                                    <p>Kita, sebagai wanita, adalah pemegang kunci atas pilihan ini setiap hari. Bukan busana yang menjadi penentu, melainkan <b>niat yang menggerakkan setiap laku.</b> Apakah kita membangun benteng diri yang kokoh, di mana kebaikan dan kebijaksanaan bersemayam, sehingga kita menjadi penenang dan pencerah? Atau, apakah kita membiarkan diri terombang-ambing oleh arus nafsu dan tuntutan duniawi, sehingga kita menjadi sumber kegelisahan dan kekeliruan?</p>
+                                    <p>Mari bermuhasabah. Pilihan ada di tangan kita. Kita adalah arsitek jiwa kita sendiri. Pilihlah dengan kesadaran penuh: <b>menjadi perhiasan yang membawa kebaikan dan kedamaian,</b> atau <b>menjadi fitnah yang menimbulkan kekacauan dan penyesalan.</b></p>
+                            `
+                        },
+                        4: {
+                            img: "web4.jpg",
+                            author: "Icut",
+                            date: "2025-12-15",
+                            content: `<h1>Menjelajahi Samudra Sabar dan Syukur</h1>
+                                    <p>Pada hamparan waktu yang terus bergerak, ada dua sauh yang menahan perahu jiwa agar tidak karam dihantam badai: <b>Sabar</b> dan <b>Syukur.</b> Keduanya adalah denyut nadi yang sesungguhnya menghidupkan makna dari sebuah perjalanan bernama kehidupan.</p>
+                                    <p>Bukanlah sabar jika ia hanya hadir dalam keheningan yang nyaman. Sabar sejati adalah tarikan napas panjang di tengah riuh kekecewaan, sebuah keikhlasan untuk menunda keinginan demi menyambut kehendak-Nya yang lebih baik. Ia bukan berarti pasif tanpa usaha, melainkan sebuah kesadaran aktif bahwa segala sesuatu memiliki batas waktu dan hikmah yang tersembunyi.</p>
+                                    <p>Sabar mengajariku bahwa rasa sakit bukanlah akhir, melainkan sebuah babak yang harus dilalui. Ia adalah janji ketenangan bagi hati yang teruji. Ketika rencana terbentur kenyataan pahit, sabar berbisik lembut, "Tunggu sebentar. Benih kebijaksanaan sedang ditanam di dalam kesulitanmu." Ini adalah seni menunggu dengan keyakinan, menahan lidah dari keluhan, dan menjaga hati dari keputusasaan.</p>
+                                    <p>Syukur, di sisi lain, adalah mata air yang tak pernah kering. Ia adalah kemampuan untuk melihat sisa gelas yang terisi, alih-alih meratapi kekosongan. Syukur tidak menunggu kesempurnaan datang; ia <b>menemukan kesempurnaan dalam momen yang sudah ada.</b></p>
+                                    <p>Syukur adalah pengakuan tulus bahwa setiap detik, setiap tarikan napas, setiap rezeki—besar maupun kecil—adalah anugerah. Ia membuatku peka terhadap kebaikan yang sering luput: hangatnya matahari pagi, secangkir kopi yang menenangkan, atau senyum tulus dari orang terkasih. Ketika kesulitan datang, syukur tak lantas hilang. Justru, ia mengajarkan untuk bersyukur atas kekuatan yang dianugerahkan untuk menghadapinya, atau bersyukur bahwa ujian itu tidak lebih berat dari yang mampu kupikul.</p>
+                                    <p>Sabar dan syukur bukanlah dua entitas yang terpisah, melainkan sepasang sayap yang harus dikepakkan bersama.</p>
+                                    <ul>
+                                        <li><b>Dalam kesulitan:</b> Kita butuh <b>Sabar</b> untuk menahan gejolak, dan kita butuh <b>Syukur</b> atas pelajaran dan hikmah yang sedang dipetik.</li>
+                                        <li><b>Dalam kenikmatan:</b> Kita butuh <b>Syukur</b> agar tidak lalai dan berpuas diri, dan kita butuh <b>Sabar</b> untuk mengelola nikmat itu agar tidak terjerumus dalam kesombongan dan pemborosan.</li>
+                                    </ul>
+                                    <p>Pada akhirnya, kehidupan adalah latihan tiada henti untuk menemukan keseimbangan di antara keduanya. Semoga kita senantiasa dikaruniai hati yang lapang untuk bersabar dalam penantian dan lisan yang ringan untuk mengucap syukur atas segala pemberian.</p>
+                            `
+                        },
+                        5: {
+                            img: "web5.jpg",
+                            author: "Icut",
+                            date: "2025-12-15",
+                            content: `<h1>Kehidupan dalam Secangkir Kopi</h1>
+                                    <p>Kehidupan, seperti secangkir kopi di tangan penikmatnya, adalah rangkaian rasa, suhu, dan proses yang tak pernah sama. Ia tidak diciptakan untuk sekali teguk yang menghabiskan, melainkan untuk diseruput perlahan, dinikmati dalam hening, bahkan saat hiruk pikuk melingkari.</p>
+                                    <p>Awalnya, seperti biji kopi yang harus melalui penggilingan, hidup seringkali mempertemukan kita dengan pahit yang keras—kesulitan, kehilangan, atau kegagalan yang terasa menekan. Proses ini menyakitkan, namun tanpa penghancuran diri yang lama, sari pati terbaik takkan pernah keluar.</p>
+                                    <p>Lalu, ada aroma. Bau yang menyeruak saat air panas bertemu bubuk adalah janji akan kehangatan dan ketenangan. Begitu pula hidup; di tengah kepahitan, selalu ada harapan yang menguap, aroma manis dari kemungkinan-kemungkinan baru, yang mengingatkan bahwa selalu ada kebaikan yang sedang diseduh.</p>
+                                    <p>Setiap tegukan adalah pelajaran.</p>
+                                    <ul>
+                                        <li>Kadang, ia <b>panas</b> membakar—emosi yang meluap, keputusan tergesa, atau penyesalan yang baru. Kita diajarkan untuk bersabar, meniupnya sejenak, menunggunya mendingin agar dapat diterima tanpa melukai.</li>
+                                        <li>Kadang, ia <b>terlalu manis</b> karena gula atau susu yang berlebihan—kenyamanan yang membuat kita lalai, pujian yang membuat lupa diri. Ia membuat kita lupa pada esensi asli, lupa pada akar pahit yang melahirkan rasa itu sendiri.</li>
+                                        <li>Dan pada akhirnya, ia menjadi <b>dingin</b>—rutinitas yang hambar, rasa kebas, atau penat yang tak lagi terasa. Di sinilah penikmat sejati tahu, bahwa kopi yang paling nikmat adalah yang diminum pada saat yang tepat, bukan saat terlalu panas atau sudah terlampau beku.</li>
+                                    </ul>
+                                    <p>Seorang penikmat kopi sejati tidak pernah meminta kopinya sempurna. Ia hanya meminta waktu untuk menikmati. Ia menerima ampas yang tersisa di dasar cangkir, karena ia tahu, ampas itu adalah bagian dari keseluruhan proses. Begitu pula kita; kita harus merangkul "ampas" kehidupan—kesalahan masa lalu, trauma yang mengendap—karena semua itu membentuk kedalaman dan kompleksitas diri kita saat ini.</p>
+                                <p>Maka, biarkan hidup menjadi kopi kita. Jangan cepat-cepat dihabiskan. Jangan selalu meminta tambahan gula. Rasakan pahitnya sebagai pengingat akan ketabahan. Cicipi manisnya sebagai syukur atas nikmat. Dan jangan pernah takut dengan ampasnya, sebab di sana tersimpan cerita.</p>
+                                <p>Sudahkah kita menikmati setiap tegukan kehidupan kita hari ini, atau hanya meneguknya tanpa pernah benar-benar merasakannya?</p>
+                            `
+                        },
+                        6: {
+                            img: "web6.jpg",
+                            author: "Icut",
+                            date: "2025-12-15",
+                            content: `<h1>Tawakal</h1>
+                                    <p>Adalah salah besar, bila engkau berfikir bahwa hidup ini harus memberikanmu kebaikan seratus persen, karena itu hanya akan terwujud di surga nanti.
+                                    <p>Di dunia ini, tidak semua yang engkau inginkan dapat menjadi kenyataan. Dunia ini adalah panggung persinggahan, bukan tujuan akhir kebahagiaan abadi. Bahkan, apa yang disebut dengan musibah, ujian, dan cobaan itu pasti akan datang kepada siapa saja dan di mana saja. Mereka adalah fitrah yang disematkan dalam desain kehidupan fana, layaknya pahit yang menyertai manis, dan gelap yang menyambut terang.</p>
+                                    <p>Maka bersyukurlah engkau tatkala mendapatkan kesenangan; sadarilah bahwa itu adalah nikmat dan anugerah sementara, bukan hak mutlakmu. Dan bersabarlah dengan keyakinan penuh ketika tertimpa musibah; pahamilah bahwa setiap kesulitan adalah cara Allah membersihkan jiwamu dan mengangkat derajatmu. Jangan mengkhayal bahwa dalam hidup ini engkau akan sehat tanpa sakit, selalu kaya dan tidak pernah miskin. Kesehatan akan beriringan dengan kelelahan, dan kelapangan akan berselang dengan kesempitan.</p>
+                                    <p>Hendaklah engkau hanya bergantung kepada Allah. Sebab, manusia tidak dapat engkau jadikan sandaran dan tempat menyerahkan segala urusan. Keterbatasan adalah pakaian setiap makhluk. Mereka bisa lelah, lupa, atau bahkan pergi. Jika engkau bersandar pada manusia, cepat atau lambat engkau akan menemukan kecewa; jika engkau bersandar pada harta, cepat atau lambat ia akan sirna.</p>
+                                    <p>Ketergantungan yang sejati bukanlah hanya berhenti meminta kepada selain-Nya, namun juga memiliki sikap hati yang menerima sepenuhnya segala ketentuan-Nya, baik yang terasa nikmat maupun yang terasa perih. Inilah yang disebut dengan Tawakal.</p>
+                                    <p>Tawakal sejati bukanlah meninggalkan usaha, melainkan menambatkan hasil akhir pada kehendak-Nya. Berikhtiarlah sekuat tenaga, susunlah rencana terbaikmu, tempuhlah sebab-sebab keberhasilan—tetapi setelah semua upaya itu dilakukan, lepaskanlah hatimu dari kekhawatiran dan serahkanlah ia pada takdir Ilahi.</p>
+                                    <p>Sebab, Dialah satu-satunya yang Maha Kuasa membalikkan keadaan dalam sekejap. Ketika semua pintu tertutup di hadapanmu, yakinlah bahwa pintu-Nya akan selalu terbuka. Hanya dengan memfokuskan hati dan harapanmu pada-Nya, engkau akan menemukan ketenangan yang sesungguhnya. Kekayaan sejati bukanlah banyak harta, melainkan hati yang kaya, hati yang merasa cukup dan aman karena yakin, Allah selalu bersamanya.</p>
+                                    <p>Maka, hadapilah dunia ini dengan dada lapang. Syukuri yang ada, ikhtiari yang dicita-citakan, dan pasrahkan segala yang telah terjadi. Dengan demikian, engkau akan menjadi pemenang sejati, baik dalam kelapangan maupun dalam kesempitan.</p>
+                            `
+                        },
+                        7: {
+                            img: "food.jpg",
+                            author: "Icut",
+                            date: "2025-12-17",
+                            content: `<h1>Mengapa Nikmat Orang Lain Membuatmu Merana?</h1>
+                                <p>Pernahkah kita bertanya pada diri sendiri, mengapa saat melihat tetangga membeli mobil baru, justru dada kita yang terasa sesak? Atau saat melihat kawan naik jabatan, justru pikiran kita yang sibuk mencari-cari kesalahannya?</p>
+                                <p>Ada penyakit hati yang halus namun mematikan bernama hasad (dengki). Ia bekerja seperti api yang memakan kayu bakar—perlahan, namun menghabiskan seluruh kebaikan yang kita miliki.</p>
+                                <p>Untuk kamu yang selalu sibuk menghitung jumlah nikmat di piring orang lain, sadarkah bahwa:</p>
+                                <ul>
+                                    <li><b>Waktumu habis untuk menjadi penonton:</b> Sementara orang yang kamu benci sedang sibuk menikmati hidup, kamu justru sibuk menjadi "direktur dokumentasi" atas keberhasilannya.</li>
+                                    <li><b>Kamu sedang memprotes takdir:</b> Saat kamu membenci nikmat yang Allah berikan kepada orang lain, secara tidak langsung kamu sedang berkata bahwa Tuhan telah "salah alamat" dalam membagikan rezeki. Sungguh, berani sekali kita mendikte Pemilik Semesta?</li>
+                                    <li><b>Rezeki itu bukan kue yang dibagi habis:</b> Jika temanmu mendapat satu potong, bukan berarti bagianmu berkurang. Langit Allah itu luas, dan gudang rezeki-Nya tidak akan pernah kosong hanya karena Dia memberi lebih pada tetanggamu.</li>
+                                </ul>
+                                <p>Membenci kebahagiaan orang lain itu melelahkan. Ia adalah beban yang kamu pikul sendiri, sementara orang yang kamu benci tetap tidur dengan nyenyak. Cobalah renungkan ini:</p>
+                                <ol>
+                                    <li><b>Fokus pada Kebun Sendiri,</b> Rumput tetangga akan selalu terlihat lebih hijau jika kita berhenti menyiram rumput di halaman sendiri. Fokuslah pada apa yang ada di tanganmu, maka kamu akan menemukan banyak hal yang patut disyukuri.</li>
+                                    <li><b>Doa adalah Penawar,</b> Salah satu obat paling ampuh melawan rasa iri adalah mendoakan keberkahan atas nikmat orang tersebut. Katakan, <i>"Barakallahu lak"</i> (Semoga Allah memberkahimu). Saat kamu mendoakan kebaikan untuk orang lain, malaikat akan mendoakan hal yang sama untukmu.</li>
+                                    <li><b>Dunia Ini Sementara,</b> Apa yang kita lihat hari ini hanya titipan. Harta, jabatan, dan kecantikan akan kembali kepada-Nya. Mengapa harus menyiksa diri dengan mengusik sesuatu yang sifatnya hanya pinjaman?</li>   
+                                </ol>
+                                <p><b>Ingatlah,</b> Rezeki tidak akan pernah tertukar. Apa yang menjadi milikmu akan menemukan jalannya kepadamu, dan apa yang bukan milikmu, tidak akan pernah menetap meski kamu mengejarnya sampai ke ujung dunia.</p>
+                            `
+                        },
+                    };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            const articleId = params.get('id');
+
+            if (articleId && articles[articleId]) {
+                const article = articles[articleId];
+                const articleContentEl = document.getElementById('article-content');
+
+                // 1. Isi konten artikel
+                document.getElementById('article-img').src = article.img;
+                articleContentEl.innerHTML = article.content;
+
+                // 2. Ambil judul dari H1 di dalam konten untuk title halaman dan share link
+                const articleTitle = articleContentEl.querySelector('h1').innerText;
+                document.title = `${articleTitle} | PureFlow Journal`;
+
+                // 3. Isi data penulis dan tanggal
+                if (article.author && article.date) {
+                    const dateObj = new Date(article.date);
+                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                    const formattedDate = dateObj.toLocaleDateString('id-ID', options);
+
+                    document.getElementById('article-author').textContent = `Ditulis oleh: ${article.author}`;
+                    document.getElementById('article-timestamp').textContent = `Dipublikasi pada: ${formattedDate}`;
+                    document.getElementById('article-timestamp').setAttribute('datetime', article.date);
+                }
+
+                // 4. Siapkan link untuk berbagi
+                const url = encodeURIComponent(window.location.href);
+                const title = encodeURIComponent(articleTitle);
+
+                document.getElementById("share-wa").href = `https://wa.me/?text=${title}%20${url}`;
+                document.getElementById("share-fb").href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                document.getElementById("share-x").href = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+                document.getElementById("share-tg").href = `https://t.me/share/url?url=${url}&text=${title}`;
+
+            } else {
+                // Handle jika artikel tidak ditemukan
+                document.querySelector('.article-page').innerHTML =
+                    '<h1>Artikel Tidak Ditemukan</h1><p>Maaf, artikel yang Anda cari tidak ada. <a href="index.html">Kembali ke halaman utama</a>.</p>';
+                document.title = "Artikel Tidak Ditemukan | PureFlow Journal";
+            }
+        });
+            </script>
+    
+<footer class="footer">
+    © 2025 PureFlow Journal. All rights reserved.
+</footer>
+
+</body>
+</html>
