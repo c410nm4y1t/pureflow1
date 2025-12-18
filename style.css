@@ -94,7 +94,7 @@ html, body {
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2.5rem 1.5rem; /* row-gap: 2.5rem, column-gap: 1.5rem */
+    gap: 3rem 1.5rem; /* row-gap: 2.5rem, column-gap: 1.5rem */
     max-width: 1200px;
     margin: 0 auto;
 }
