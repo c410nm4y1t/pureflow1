@@ -279,13 +279,15 @@ a.card-btn {
     text-align: justify;
 }
 
-.article-content h1 {
-    /* Menghilangkan margin atas default dari browser */
-    margin-top: 0; 
-    /* Menyesuaikan margin bawah agar tidak terlalu jauh dari paragraf pertama */
-    margin-bottom: 1.5rem; 
-    /* Menyamakan gaya dengan judul lain untuk konsistensi */
-    font-size: clamp(1.8rem, 5vw, 3rem);
+.article-content ul {
+    margin-left: 20px;
+    padding-left: 2rem;
+    list-style-position: inside;
+}
+
+.article-content li {
+    margin-bottom: 0.8rem;
+    padding-left: 0.5rem;
 }
 
 .article-meta-bottom {
