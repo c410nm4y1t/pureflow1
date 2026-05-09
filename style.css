@@ -32,16 +32,24 @@ html, body {
     font-size: clamp(28px, 6vw, 55px);
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: #3e2723;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
     line-height: 1.2;
     margin-bottom: 12px;
 }
 .container p {
     font-size: clamp(18px, 4.5vw, 42px);
-    color: #000;
-    max-width: 75%;
-    line-height: 1.4;
-    padding-left: 12%;
+    color: #3e2723;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+    max-width: 55ch; /* Membatasi lebar agar teks terbagi menjadi ~3 baris */
+    line-height: 1.3;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: normal; /* Mengizinkan teks turun ke baris baru */
+    border-right: #3e2723;
+    display: block;
+    height: 0;
+    animation: typing 4s steps(60, end) forwards, blink-caret 0.75s step-end infinite;
 }
         
 .cards-section {
@@ -411,4 +419,15 @@ a, button, .card-btn, .back-btn, .about-btn, .cover-about-btn {
     color: #555;
     font-size: 0.85rem;
     margin-top: 50px;
+}
+
+/* Animasi untuk Efek Typing */
+@keyframes typing {
+    from { height: 0; }
+    to { height: 4.5em; } /* Menyesuaikan tinggi untuk 3 baris (3 x line-height) */
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #3e2723 }
 }
